@@ -13,7 +13,7 @@ import { SongDetails } from "../pages";
 const TopPlay = () => {
 
   useEffect(() => {
-      divref.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      divref.current.scrollIntoView({behavior: 'smooth'});
   });
 
   const {activeSong, isPlaying} = useSelector((state) => state.player);

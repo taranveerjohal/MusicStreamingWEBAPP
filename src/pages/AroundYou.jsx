@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {useSelector} from 'react-redux';
 
@@ -23,13 +23,11 @@ const CountryTracks = () => {
             )
         };
         getCountry();
-     divref.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-
     }, []);
-    const divref = useRef(null);
+
     if(isLoading && isError) return <Loader2 title="Loading Songs..." />;
     return (
-        <div ref={divref} className='flex flex-col'>
+        <div className='flex flex-col'>
             <div className='flex flex-col items-center justify-between mt-4 mb-10'>
                 <h1 className='text-2xl font-bold text-white'>Top 10 Songs around you</h1>
                 <p className='text-md text-gray-200'>{country}</p>

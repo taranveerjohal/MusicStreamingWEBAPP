@@ -6,11 +6,10 @@ import { JellyfishSpinner } from "react-spinners-kit";
 const Loader2 = ({title}) => {
 
   return (
-        <div className="h-full w-full object-contain items-center pr-12 flex flex-col justify-center">
+        <div className="h-full w-full object-contain items-center flex flex-col justify-between">
         <JellyfishSpinner
                     size={400}
                     color="#b33722ee"
-                    className="h-full w-full "
                 />
         <h2 className='font-bold text-2xl sm:text-3xl text-white'>{title || "loading.."}</h2>
         </div>

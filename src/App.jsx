@@ -1,24 +1,15 @@
 import { useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useGetTopChartQuery } from './redux/services/shazamCore';
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
 
 const App = () => {
-  
-  useEffect(() => {
-    divref.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-  });
-  const divref = useRef(null);
   const { activeSong } = useSelector((state) => state.player);
   const {isFetching} = useGetTopChartQuery();
-  
-
-  
 
   return (
-    <div  ref={divref} className="relative flex">
+    <div className="relative flex">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-gradient-to-br from-[#250c07] to-[#860909]">
         <Searchbar />
@@ -41,7 +32,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 w-full left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#720715] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#720715] backdrop-blur-lg rounded-t-3xl z-10">
           <MusicPlayer />
         </div>
       )}
