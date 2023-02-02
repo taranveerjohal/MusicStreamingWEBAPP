@@ -10,9 +10,9 @@ const App = () => {
   return (
     <div className="relative flex">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-[#503b37] to-[#dd2c2c]">
+      <div className="flex-1 flex flex-col bg-gradient-to-br from-[#250c07] to-[#860909]">
         <Searchbar />
-        <div className="px-6 h-[calc(100vh-22px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className="px-6 h-[calc(100vh-24px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
@@ -31,7 +31,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#bd0a22] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#720715] backdrop-blur-lg rounded-t-3xl z-10">
           <MusicPlayer />
         </div>
       )}

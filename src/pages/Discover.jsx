@@ -2,6 +2,8 @@ import {Error, Loader, SongCard } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { genres } from '../assets/constants';
 import {useGetTopChartQuery} from '../redux/services/shazamCore';
+import { FaHubspot } from 'react-icons/fa';
+import { HiBackspace } from 'react-icons/hi';
 
 const Discover = () => 
 {
@@ -25,7 +27,7 @@ const Discover = () =>
             </div>
             <div className='flex flex-wrap gap-5 sm:justify-center justify-center'>
                 {data.map((song, i) => (
-                    song.images?.coverart && 
+                    song.images?.coverart && song?.hub.actions &&
                     <SongCard
                      key={song.key} 
                      song={song} 
@@ -33,7 +35,7 @@ const Discover = () =>
                      isPlaying={isPlaying} 
                      activeSong={activeSong} 
                      data={data} 
-                     />
+                     /> 
                 ))}
             </div>
         </div>

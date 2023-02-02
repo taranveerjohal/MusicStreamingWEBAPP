@@ -7,6 +7,7 @@ import { playPause, setActiveSong } from '../redux/features/playerSlice';
 const SongCard = ({ song, i, isPlaying, activeSong, data}) => {
 
   const dispatch = useDispatch();
+  
   const handlePlay = () => {
     dispatch(setActiveSong({song, data, i}));
     dispatch(playPause(true));
@@ -17,8 +18,8 @@ const SongCard = ({ song, i, isPlaying, activeSong, data}) => {
   };
 
   return(
-    <div className="flex flex-col w-[250px] bg-opacity-80 backdrop-blur-sm animate-slideup
-     p-4 bg-white/5 cursor-pointer rounded-md ">
+    <div className="flex flex-col w-[250px] animate-slideup duration-500
+     p-3 bg-white/5 cursor-pointer rounded-md ">
       <div className="relative w-full h-56 group">
         <div className={`absolute inset-0 justify-center items-center bg-black
           bg-opacity-50 group-hover:flex 
@@ -31,7 +32,7 @@ const SongCard = ({ song, i, isPlaying, activeSong, data}) => {
           activeSong={activeSong}
           />
         </div>
-        <img src={song.images?.coverart} alt={song.title} />
+        <img src={song.images?.coverart} alt={song.title} className='rounded-sm' />
       </div>
           <div className='flex flex-col '>
             <Link to={`/songs/${song?.key}`}>
