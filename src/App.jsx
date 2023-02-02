@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-
+import { useGetTopChartQuery } from './redux/services/shazamCore';
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
+  const {isFetching} = useGetTopChartQuery();
 
   return (
     <div className="relative flex">
@@ -25,7 +26,7 @@ const App = () => {
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
-            <TopPlay />
+            {isFetching ? null : <TopPlay /> }
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const DetailsHeader = ({artistId, artistData, songData}) => {
+const DetailsHeaders2 = ({artistId, artistData, songData}) => {
   return(
   <div className="flex flex-col relative w-full">
     <div className="w-full bg-gradient-to-l rounded-lg from-transparent to-black/40 sm:h-48 h-28" />
@@ -14,24 +14,18 @@ const DetailsHeader = ({artistId, artistData, songData}) => {
         <div className="flex flex-col">
           <Link to={artistId ? `/artists/${artistId}` : '/top-artists'}>
             <h1 className="text-white font-semibold text-4xl">
-              {artistId 
-              ? artistData?.data[0]?.attributes?.name
-              : songData?.title 
+              {artistData?.data[0]?.attributes?.name
               }
             </h1>
           </Link>
           <Link to={artistId ? `/artists/${artistId}` : '/top-artists'}>
             <p className="text-gray-500 text-md mt-5 font-semibold">
-              {artistId 
-              ? songData?.subtitle 
-              : artistData?.data[0]?.attributes?.genreNames
+              {artistData?.data[0]?.attributes?.genreNames
               }
             </p>
           </Link>
           <p className="text-gray-500 text-md font-semibold">
-            {artistId 
-            ? songData?.genres?.primary
-            : artistData?.data[0]?.attributes?.genreNames[0]
+            {artistData?.data[0]?.attributes?.origin
             }
           </p>
         </div>
@@ -41,4 +35,4 @@ const DetailsHeader = ({artistId, artistData, songData}) => {
  )
 };
 
-export default DetailsHeader;
+export default DetailsHeaders2;

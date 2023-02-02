@@ -24,6 +24,7 @@ const TopPlay = () => {
   const topPlays = data?.slice(0, 10);
 
   const handlePlayClick = (song, i) => {
+    console.log(song);
     dispatch(setActiveSong({song, data, i}));
     dispatch(playPause(true));
   }; 
@@ -35,7 +36,7 @@ const TopPlay = () => {
   const TopChartCard =({song, i, activeSong, isPlaying, handlePause, handlePlay}) => {
     return(
       <>
-        {song.images?.background && song?.artists &&
+        {song.images?.background && song?.artists && song.hub?.actions &&
           <>
             <div className="w-full flex items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
               <h3 className="font-bold text-base text-white mr-4 left-0">{i ? i : + 1}</h3>
@@ -79,7 +80,10 @@ const TopPlay = () => {
       </div>
       <div className="flex flex-col justify-between items-center">
        {topPlays?.map((song, i) => (
-         <TopChartCard song={song} i={i ? i : null} key={song?.key} isPlaying={isPlaying} activeSong={activeSong} handlePause={() =>handlePauseClick(song, i)} handlePlay={() => handlePlayClick(song, i)} />
+        <>
+         { song.images?.background && song?.artists &&
+          <TopChartCard song={song} i={i ? i : null} key={song?.key} isPlaying={isPlaying} activeSong={activeSong} handlePause={() =>handlePauseClick(song, i)} handlePlay={() => handlePlayClick(song, i)} />}
+        </>
         ))}
       </div>
     </div>
@@ -101,7 +105,7 @@ const TopPlay = () => {
       >
         {topPlays?.map((song, i) => (
          <>
-          {  song.images?.background && song?.artists &&
+          {  song.images?.coverart && song?.hub.actions &&
             <SwiperSlide key={song?.key} style={{width:'25%', height:'auto'}} className="shadow-lg rounded-full animate-slideright">
               <div>
                 <Link to={`/artists/${song?.artists[0]?.adamid}`}>
