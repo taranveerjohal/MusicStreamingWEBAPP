@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import {useSelector} from 'react-redux';
 
@@ -8,12 +8,15 @@ import { useGetTopChartQuery } from '../redux/services/shazamCore';
 const TopCharts = () => {
     const {activeSong, isPlaying} = useSelector(state => state.player);
     const {data, isLoading, isError} = useGetTopChartQuery();
-
+    useEffect(() => {
+        divref.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      });
+      const divref = useRef(null);
     if(isLoading && isError) return <Loader2 title="Loading Songs..." />;
     if(isError) return <Error title="Error" message="Something went wrong" />;
 
     return (
-        <div className='flex flex-col'>
+        <div ref={divref} className='flex flex-col'>
             <div className='flex flex-col items-center justify-between mt-4 mb-10'>
                 <h1 className='text-2xl font-bold text-white'>Top Charts</h1>
             </div>
