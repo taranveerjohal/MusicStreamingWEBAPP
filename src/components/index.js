@@ -10,6 +10,7 @@ import MusicPlayer from './MusicPlayer'
 import Loader from './Loader'
 import Error from './Error'
 import DetailsHeaders2 from './DetailsHeaders2'
+import Loader2 from './Loader2'
 
 export {
   TopPlay,
@@ -22,6 +23,7 @@ export {
   RelatedSongs,
   MusicPlayer,
   Loader,
+  Loader2,
   DetailsHeaders2,
   Error,
 }
