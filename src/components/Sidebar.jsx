@@ -26,7 +26,7 @@ const Sidebar = () => {
     return (
     <>
       <div className="md:flex hidden flex-col w-[240px] py-10 bg-[#330a0af3] px-4">
-        <img src={logo} alt="logo" className="object-contain w-full h-14" />
+        <img src={logo} alt="logo" className="object-contain w-full h-50" />
         <NavLinks />
       </div>
       <div className="md:hidden absolute block top-6 right-3 ">
@@ -38,7 +38,7 @@ const Sidebar = () => {
       </div> 
       <div className={`absolute top-0 h-screen w-2/4 bg-gradident-to-tl from-white/10 to-[#dd303085] backdrop-blur-lg
          z-10 p-6 md:hidden smooth-transition ${stateMobileMenu ? "left-0": "-left-full"}`}>
-          <img src={logo} alt="logo" className="object-contain w-full h-14" />
+          <img src={logo} alt="logo" className="object-contain w-full h-36" />
           <NavLinks handleClick={() => setStateMobileMenu(false)} />
       </div>
     </>

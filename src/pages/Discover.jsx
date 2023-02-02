@@ -4,6 +4,7 @@ import { genres } from '../assets/constants';
 import {useGetTopChartQuery} from '../redux/services/shazamCore';
 import { FaHubspot } from 'react-icons/fa';
 import { HiBackspace } from 'react-icons/hi';
+import Loader2 from '../components/Loader2.jsx';
 
 const Discover = () => 
 {
@@ -12,7 +13,7 @@ const Discover = () =>
     const {data, error, isFetching} = useGetTopChartQuery();
     const genreTitle = 'Pop'
 
-    if(isFetching) return <Loader title="loading songs..." />
+    if(isFetching) return <Loader2 title="loading songs..." />
     if(error) return <Error title="Error loading songs" />
 
     return (

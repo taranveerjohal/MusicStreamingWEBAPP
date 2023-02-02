@@ -20,7 +20,7 @@ const SongCard = ({ song, i, isPlaying, activeSong, data}) => {
   return(
     <div className="flex flex-col w-[250px] animate-slideup duration-500
      p-3 bg-white/5 cursor-pointer rounded-md ">
-      <div className="relative w-full h-56 group">
+      <div className="relative w-full  group">
         <div className={`absolute inset-0 justify-center items-center bg-black
           bg-opacity-50 group-hover:flex 
           ${activeSong?.title === song.title? 'flex bg-black bg-opacity-70' : 'hidden'}`}>

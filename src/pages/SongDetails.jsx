@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 import { setActiveSong, playPause } from '../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../redux/services/shazamCore';
+import Loader2 from '../components/Loader2.jsx';
 
 const SongDetails = () => {
     const { songid } = useParams();
@@ -11,7 +12,7 @@ const SongDetails = () => {
     const { data: songData, isLoading: isFetchingSongDetails , isError } = useGetSongDetailsQuery(songid);
     const {data, isLoading, isError: RelatedSongserror} = useGetSongRelatedQuery(songid);
 
-    if(isFetchingSongDetails || isLoading) return <Loader title="Loading song details..." />
+    if(isFetchingSongDetails || isLoading) return <Loader2 title="Loading song details..." />
     if(isError || RelatedSongserror) return <Error />
 
     const handlePlayClick = (song, i) => {
