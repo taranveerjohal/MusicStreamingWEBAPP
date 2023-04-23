@@ -10,10 +10,9 @@ const CountryTracks = () => {
     const {activeSong, isPlaying} = useSelector(state => state.player);
 
     const {data, isLoading, isError} = useGetSongsByCountryQuery(country);
-    const VITE_GEO_API_KEY = process.env.VITE_GEO_API_KEY;
     useEffect(() => {
         const getCountry = async () => {
-            await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${VITE_GEO_API_KEY}`)
+            await axios.get(`https://geo.ipify.org/api/v2/country?apiKey=${process.env.REACT_APP_VITE_GEO_API_KEY}`)
                 .then(res => {
                     setCountry(res?.data?.location?.country);
                 })
